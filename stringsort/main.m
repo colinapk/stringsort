@@ -45,7 +45,10 @@ int main(int argc, const char * argv[])
                     for (NSString * key in sortedKeys) {
                         
                         NSString * value = [dict objectForKey:key];
-                        [newStrings appendFormat:@"\"%@\" = \"%@\";\n",key,value];
+                        [newStrings appendFormat:@"\"%@\" = \"%@\";",key,value];
+                        if (![key isEqualToString:[sortedKeys lastObject]]) {
+                            [newStrings appendString:@"\n"];
+                        }
                     }
                     NSData * data = [newStrings dataUsingEncoding:NSUnicodeStringEncoding];
                     NSString * newName = [NSString stringWithFormat:@"[sorted]%@",filename];
