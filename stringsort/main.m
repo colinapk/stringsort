@@ -51,7 +51,7 @@ int main(int argc, const char * argv[])
                         }
                     }
                     NSData * data = [newStrings dataUsingEncoding:NSUnicodeStringEncoding];
-                    NSString * newName = [NSString stringWithFormat:@"[sorted]%@",filename];
+                    NSString * newName = [NSString stringWithFormat:@"%@",filename];
                     BOOL res = [fm createFileAtPath:newName contents:data attributes:[fm attributesOfItemAtPath:filename error:&error]];
                     if (res) {
                         NSLog(@"Create string file %@ success\n",newName);
